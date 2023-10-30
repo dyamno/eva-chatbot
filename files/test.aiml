@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>hello</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    
+     <category>
+        <pattern>howdy</pattern>
+        <template><srai>hello</srai></template>
+    </category>
+    
+    <category>
+        <pattern>what are you</pattern>
+        <template>
+            I'm a bot, silly!
+        </template>
+    </category> 
+
+    <category>
+        <pattern>my name is *</pattern>
+        <template>
+        Hello <set name="firstname"><star/></set>
+        </template>
+    </category> 
+
+    <category>
+        <pattern>what is my name</pattern>
+        <template>
+        <get name="firstname"/>
+        </template>
+    </category> 
+    
+    <category>
+        <pattern>ask me a question</pattern>
+        <template> do you like beach?</template>
+    </category>
+
+    <category>
+    <that>ask me a question</that>
+        <pattern>yes</pattern>
+        <template>Nice. Me too. I love the sea</template>
+        <pattern>no</pattern>
+        <template>Aw that's sad. I love the sea breeze</template>
+    </category>
+    
+    <category>
+        <pattern>* coin</pattern>
+        <template>
+        <think>
+        <set name="coin">
+        <random>
+        <li>It was tails</li>
+        <li>It was heads </li>
+        </random>
+        </set>
+        </think>
+        <get name="coin"/>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* is *</pattern>
+        <template>
+            I have remembered that. You can quiz me about it sometime.
+            <learn>
+                <category>
+                    <pattern>what is *</pattern>
+                    <template>It is a <eval><star index="2"/></eval></template>
+                </category>
+            </learn>
+        </template>
+    </category>
+    
+    
+
+</aiml>
